@@ -2,7 +2,6 @@ import '../styles/main.scss';
 import '../../index.html';
 
 import $ from 'jquery';
-import YTSearch from 'youtube-api-search';
 import API_KEY from './api_key';
 
 var state = {
@@ -63,9 +62,8 @@ function vidsRender(VideoDetail, VideoList) {
   VideoList = state.videosHTML;
   var VideoSection = VideoDetail + VideoList;
   $('#video-section').html(VideoSection);
-  var listItems = [].slice.call(document.querySelectorAll('.list-group-item'));
-  listItems.map(function(item, i){
-    return item.addEventListener('click', function(){ vidsPlayer(i)});
+  $('.list-group-item').click(function(){
+    vidsPlayer($(this).index());
   });
 }
 
