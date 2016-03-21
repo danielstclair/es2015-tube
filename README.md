@@ -15,12 +15,14 @@ The following project is a basic rebuild of youtube using jQuery and Bootstrap f
 8. Copy key that's generated
 
 ### Setting up project
-1. Inside of src/scripts folder, create file called "api_key.js"
-2. Inside of api_key.js enter following code: 
+1. npm install
+2. Inside of src/scripts folder, create file called "api_key.js"
+3. Inside of api_key.js enter following code: 
 ```javascript
 const API_key = 'ENTER_API_KEY_HERE';
 export default API_KEY;
 ```
-3. npm install
-4. npm start
-5. go to http://localhost:8090
+
+### Start coding
+1. npm start
+2. go to http://localhost:8090
