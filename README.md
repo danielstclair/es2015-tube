@@ -7,7 +7,7 @@ The following project is a basic rebuild of youtube using jQuery and Bootstrap f
 Before anything else, fork and clone the project.
 
 ### Getting Google Api Key
-1. Go to <console.developers.google.com>
+1. Go to <http://console.developers.google.com>
 2. Click on hamburger menu at top left corner 
 3. Go to API Manager 
 4. Search for youtube 
