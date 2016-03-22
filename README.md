@@ -4,7 +4,7 @@
 The following project is a basic rebuild of youtube using jQuery and Bootstrap for styling. Our goal is to refactor all js code to current es2015 syntax so jquery is so longer required.
 
 ## Instructions
-Before anything else, git clone the project.
+Before anything else, fork and clone the project.
 
 ### Getting Google Api Key
 1. Go to console.developers.google.com 
