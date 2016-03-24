@@ -3,68 +3,69 @@ import '../../index.html';
 
 import $ from 'jquery';
 import API_KEY from './api_key';
-
-var state = {
-  "term": '',
-  "videos": [],
-  "videosHTML": '',
-  "selectedVideo": {},
-  "selectedVideoHTML": ''
-};
-
-function initRender(){
-  var SearchBar = '<form class="search-bar"><input placeholder="Let\'s search the youtube verse" /></form>';
-  var App = '<section>' + SearchBar + '</section><section id="video-section"></section>';
-  $('#container').html(App);
-  $('.search-bar').on('submit', searchVids);
-}
-
-function searchVids(e){
-  e.preventDefault();
-  state.term = e.target.children[0].value;
-  getVids(state.term);
-}
-
-function getVids(term) {
-  var params = {
-    part: 'snippet',
-    key: API_KEY,
-    q: term,
-    type: 'video'
-  };
-  $.get('https://www.googleapis.com/youtube/v3/search', params)
-    .done(function(data){
-      state.videos = data.items.slice();
-      vidsList(state.videos)
-    });
-}
-
-function vidsList(videos){
-  var VideoListItems = videos.map(function(video, i){
-    return '<li class="list-group-item"><div class="video-list media"><div class="media-left"><img class="media-object" src=' + video.snippet.thumbnails.default.url + ' /></div></div><div class="media-body"><div class="media-heading">' + video.snippet.title + '</div></div></li>';
-  });
-  var VideoList = '<ul class="col-md-4 list-group">' + VideoListItems.join('') + '</ul>';
-  state.selectedVideo = videos[0];
-  state.videosHTML = VideoList;
-  vidsPlayer(0);
-}
-
-function vidsPlayer(num) {
-  var videoUrl = 'https://www.youtube.com/embed/' + state.videos[num].id.videoId;
-  var VideoDetail =  '<div class="video-detail col-md-8"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" allowfullscreen="allowfullscreen" src=' + videoUrl + '></iframe></div><div class="details"><h6>' + state.videos[num].snippet.title + '</h6><span>' + state.videos[num].snippet.description +'</span></div></div>';
-  state.selectedVideo = state.videos[num];
-  state.selectedVideoHTML = VideoDetail;
-  vidsRender();
-}
-
-function vidsRender(VideoDetail, VideoList) {
-  VideoDetail = state.selectedVideoHTML;
-  VideoList = state.videosHTML;
-  var VideoSection = VideoDetail + VideoList;
-  $('#video-section').html(VideoSection);
-  $('.list-group-item').click(function(){
-    vidsPlayer($(this).index());
-  });
-}
+import initRender from './initRender';
 
 initRender();
+
+
+var person = {
+  firstName: 'Daniel',
+  lastName: 'St. Clair',
+  interest: {
+    sports: ['football', 'basketball', 'soccer', 'baseball'],
+    food: ['pizza', 'sushi']
+  },
+  saySomething() {
+    console.log(this);
+    this.interest.sports.map((sport) => {
+      console.log(`Hi my name is ${this.firstName} and my favorite sports are ${sport}`);
+    });
+  }
+}
+
+// person.saySomething();
+
+var arr1 = [1, 'Steve', 'Batman', 45];
+
+var arr2 = ['Superman', 35, 'Metropolis'];
+
+
+(function(){
+  // console.log(this);
+})();
+
+function twoArgs(a = 'frankenstein', b = 'is awesome') {
+  console.log(a, b);
+}
+
+twoArgs();
+
+// function comments(...arr) {
+  // console.log(arr);
+  // for (var i = 0; i <= arr; i++) {
+
+  // }
+// }
+
+// comments(...arr1, ...arr2);
+
+// arr1 = [...arr1, ...arr2];
+// console.log('arr1 ' , arr1);
+
+// for (var i = 0; i < arr2.length; i++) {
+//   arr1.push(arr2[i]);
+// }
+// console.log('arr1 ' , arr1);
+
+
+// const { firstName, 
+//   lastName, 
+//   interest: {sports}} = person;
+// const [a, , c] = sports;
+// console.log('c ' , c);
+// console.log('a ' , a);
+// console.log('sports ' , sports);
+
+
+
+console.log(`Hi my name is ${person.firstName} ${person.lastName} and I like to play guitar`)
