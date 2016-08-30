@@ -8,20 +8,20 @@ Before anything else, fork and clone the project.
 
 ### Getting Google Api Key
 1. Go to <a href="http://console.developers.google.com">Google Developers Console</a>
-2. Click on hamburger menu at top left corner 
-3. Go to API Manager 
-4. Search for youtube 
-5. Click on YouTube Data API v3 
-6. Click on Enable API. 
+2. Click on hamburger menu at top left corner
+3. Go to API Manager
+4. Search for youtube
+5. Click on YouTube Data API v3
+6. Click on Enable API.
 7. Click on Credentials > New Credentials > Api Key > Browser Key > type name of app
 8. Copy key that's generated
 
 ### Setting up project
 1. npm install
 2. Inside of src/scripts folder, create file called "api_key.js"
-3. Inside of api_key.js enter following code: 
+3. Inside of api_key.js enter following code:
 ```javascript
-const API_key = 'ENTER_API_KEY_HERE';
+const API_KEY = 'ENTER_API_KEY_HERE';
 export default API_KEY;
 ```
 
